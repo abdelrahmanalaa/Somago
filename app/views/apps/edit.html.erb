@@ -1,0 +1,5 @@
+<h1>Edit app</h1>
+<%= link_to "Delete this app", app_path(@app), method: :delete,
+      
+      data: { confirm: "Are you sure you want to delete the app?"} %>
+<%= render 'form' %>

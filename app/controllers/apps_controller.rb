@@ -20,8 +20,17 @@ class AppsController < ApplicationController
     end
   end
   
+  def destroy
+    @app = App.find(params[:id])
+    if @app.present?
+      @app.destroy
+    end
+    redirect_to apps_path
+  end
+  
   def show
     @app = App.find(params[:id])
+    @comments = Comment.where(app_id: @app).order("created_at DESC")
   
   end
   
